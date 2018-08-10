@@ -1,4 +1,4 @@
-# Ruck Pack 🎒
+# Ruck Sack 🎒
 > Collection of React user-experience containers for common interactions
 
 ### Modal

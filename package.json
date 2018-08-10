@@ -1,8 +1,8 @@
 {
-  "name": "ruckpack",
+  "name": "ruck.sack",
   "version": "0.0.1",
   "description": "React UX components for handling common interactions",
-  "main": "dist/ruckpack.cjs.js",
+  "main": "dist/rucksack.cjs.js",
   "scripts": {
     "test": "jest",
     "build": "rollup --config"

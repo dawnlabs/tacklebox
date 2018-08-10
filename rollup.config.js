@@ -8,8 +8,8 @@ module.exports = {
   input: 'index.js',
   output: [
     {
-      name: 'RuckPack',
-      file: 'dist/ruckpack.cjs.js',
+      name: 'RuckSack',
+      file: 'dist/rucksack.cjs.js',
       format: 'cjs'
     }
   ],
