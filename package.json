@@ -33,5 +33,12 @@
     "rollup-plugin-node-resolve": "^3.3.0",
     "rollup-plugin-replace": "^2.0.0",
     "rollup-plugin-terser": "^1.0.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dawnlabs/actionsack.git"
+  },
+  "bugs": {
+    "url": "https://github.com/dawnlabs/actionsack/issues"
   }
 }
