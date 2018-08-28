@@ -1,6 +1,6 @@
 const babel = require('rollup-plugin-babel')
 
-module.exports = {
+const umd = {
   input: 'index.js',
   output: [
     {
@@ -24,3 +24,5 @@ module.exports = {
     })
   ]
 }
+
+module.exports = umd
