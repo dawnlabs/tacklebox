@@ -1,16 +1,14 @@
-const resolve = require('rollup-plugin-node-resolve')
-const commonjs = require('rollup-plugin-commonjs')
 const babel = require('rollup-plugin-babel')
-const {uglify} = require('rollup-plugin-uglify')
-const replace = require('rollup-plugin-replace')
 
 module.exports = {
   input: 'index.js',
   output: [
     {
-      name: 'RuckSack',
-      file: 'dist/rucksack.cjs.js',
-      format: 'cjs'
+      name: 'ActionSack',
+      file: 'dist/actionsack.umd.js',
+      format: 'umd',
+      sourcemap: true,
+      exports: 'named'
     }
   ],
   plugins: [
@@ -20,17 +18,9 @@ module.exports = {
         ['env', { 'modules': false }],
         'react'
       ],
-      plugins: ['external-helpers'],
+      runtimeHelpers: true,
+      plugins: ['external-helpers', 'transform-runtime'],
       babelrc: false
-    }),
-    resolve(),
-    commonjs(),
-
-    // Production
-    replace({
-      'process.env.NODE_ENV': JSON.stringify('production')
-    }),
-    uglify()
-  ],
-  external: ['react', 'react-dom']
+    })
+  ]
 }

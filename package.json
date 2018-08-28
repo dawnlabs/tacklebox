@@ -1,8 +1,8 @@
 {
-  "name": "ruck.sack",
+  "name": "actionsack",
   "version": "0.0.1",
   "description": "React UX components for handling common interactions",
-  "main": "dist/rucksack.cjs.js",
+  "main": "dist/actionsack.umd.js",
   "scripts": {
     "test": "jest",
     "build": "rollup --config"
@@ -16,16 +16,15 @@
   "author": "dawnlabs",
   "license": "MIT",
   "dependencies": {
-    "react-click-outside": "^3.0.1",
-    "react-copy-to-clipboard": "^5.0.1"
-  },
-  "peerDependencies": {
     "react": "^16.0.0",
-    "react-dom": "^16.0.0"
+    "react-click-outside": "^3.0.1",
+    "react-copy-to-clipboard": "^5.0.1",
+    "react-dom": "^16.4.2"
   },
   "devDependencies": {
     "babel-core": "^6.26.3",
     "babel-plugin-external-helpers": "^6.22.0",
+    "babel-plugin-transform-runtime": "^6.23.0",
     "babel-preset-env": "^1.7.0",
     "babel-preset-react": "^6.24.1",
     "rollup": "^0.64.1",
@@ -33,6 +32,6 @@
     "rollup-plugin-commonjs": "^9.1.5",
     "rollup-plugin-node-resolve": "^3.3.0",
     "rollup-plugin-replace": "^2.0.0",
-    "rollup-plugin-uglify": "^4.0.0"
+    "rollup-plugin-terser": "^1.0.1"
   }
 }
