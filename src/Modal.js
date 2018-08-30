@@ -9,8 +9,8 @@ const ClickAway = enhanceWithClickOutside(
       super(props);
       this.escFunction = this.escFunction.bind(this);
     }
-    handleClickOutside() {
-      this.props.onClickAway();
+    handleClickOutside(e) {
+      this.props.onClickAway(e);
     }
     escFunction(event) {
       if (event.keyCode === ESCAPE_KEY) {
@@ -30,11 +30,10 @@ const ClickAway = enhanceWithClickOutside(
   }
 );
 
-const Modal = props =>
-  props.open ? (
+const Modal = props => (
     <ClickAway onClickAway={props.onClickAway}>
-      {props.children}
+      {props.open ? props.children : null}
     </ClickAway>
-  ) : null;
+  );
 
 export default Modal;
