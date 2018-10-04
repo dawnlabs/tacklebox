@@ -1,5 +1,21 @@
 import React from 'react'
 
+const isEqual = (source, target) => {
+  if (source === target) {
+    return true
+  }
+
+  if (typeof source === 'object' && typeof target === 'object') {
+    if (Array.isArray(source)) {
+      return source.every((value, i) => isEqual(value, target[i]))
+    }
+
+    return Object.keys(source).every(key => isEqual(source[key], target[key]))
+  }
+
+  return false
+}
+
 function noop() {}
 class TempValue extends React.Component {
   constructor(props) {
@@ -43,7 +59,10 @@ class TempValue extends React.Component {
   }
 
   render() {
+    const hasChanged = !isEqual(this.base.value, this.state.value)
+
     return this.props.children({
+      hasChanged,
       value: this.state.value,
       loading: this.state.loading,
       error: this.state.error,
