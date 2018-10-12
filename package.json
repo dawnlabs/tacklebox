@@ -1,6 +1,6 @@
 {
   "name": "actionsack",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "React UX components for handling common interactions",
   "main": "dist/actionsack.umd.js",
   "scripts": {
