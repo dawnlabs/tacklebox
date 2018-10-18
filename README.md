@@ -2,7 +2,7 @@
 > Collection of React user-experience containers for common interactions
 
 ### Modal
-> `wrapper` component
+> `wrapper HOC` component
 
 Class controlled Modal component with click-away and ESC-key to close
 
@@ -53,4 +53,49 @@ const submit = () => new Promise((resolve) => {
     </button>
   )}
 </AsyncButton>
+```
+
+### TempValue
+> `render-prop` container
+
+Container that stores a temporary value that you can either commit or discard. Useful for forms that with state you might reset.
+
+##### Example
+```javascript
+import {TempValue} from 'actionsack'
+
+const someInitialValue = 'Mike' // can be an object too
+
+<TempValue value={someInitialValue}>
+  {({ hasChanged, value, loading, error, onInputChange, onSubmit, onCancel }) => (
+    <form onSubmit(e => { e.preventDefault(); onSubmit() })>
+      {error && <span>{error}</span>}
+      <input name="name" value={value} onChange={onInputChange} />
+      <button disabled={!hasChanged || loading} type="submit">
+        Submit
+      </button
+      <button disabled={!hasChanged || loading} onClick={onCancel}>
+        Cancel
+      </button
+    </form>
+  )}
+</TempValue>
+```
+
+### LocalStorage
+> `render-prop` container
+
+Container keeps local storage and local state in sync
+
+##### Example
+```javascript
+import {LocalStorage} from 'actionsack'
+
+<LocalStorage>
+  {({ state, setState }) => (
+    <button onClick={() => setState(({count}) => ({count: count + 1}))}>
+      {state.count}
+    </button>
+  )}
+</LocalStorage>
 ```

@@ -76,7 +76,7 @@ class LocalStorage extends React.Component {
 
   update(changes) {
     this.setState(changes, () => {
-      Object.keys(changes).map(key =>
+      Object.keys(this.state).map(key =>
         this.handleStorageUpdate(key, changes[key]))
     })
   }
