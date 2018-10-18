@@ -23,7 +23,7 @@ class TempValue extends React.Component {
 
     this.base = {
       error: null,
-      loading: false
+      loading: false,
       value: this.props.value
     }
     this.state = this.base
