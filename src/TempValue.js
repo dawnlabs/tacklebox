@@ -1,4 +1,4 @@
-import React from 'react'
+import { memo, useState, useMemo } from 'react'
 
 const isEqual = (source, target) => {
   if (source === target) {
@@ -16,67 +16,54 @@ const isEqual = (source, target) => {
   return false
 }
 
-function noop() {}
-class TempValue extends React.Component {
-  constructor(props) {
-    super(props)
+export function useTempValue(props) {
+  const [value, setState] = useState(props.initialValue)
+  const [baseValue, setBaseValue] = useState(props.initialValue)
+  const [error, setError] = useState(null)
+  const [loading, setLoading] = useState(false)
 
-    this.base = {
-      error: null,
-      loading: false,
-      value: this.props.value
-    }
-    this.state = this.base
+  const hasChanged = !useMemo(() => isEqual(baseValue, value), [value])
 
-    this.handleChange = this.handleChange.bind(this)
-    this.handleInputChange = this.handleInputChange.bind(this)
-    this.handleCancel = this.handleCancel.bind(this)
-    this.handleSubmit = this.handleSubmit.bind(this)
-  }
-
-  handleChange(value) {
-    this.setState({ value })
-  }
-
-  handleInputChange(e) {
-    this.handleChange(e.target.value)
-  }
-
-  handleCancel() {
-    this.setState(this.base, this.props.onCancel)
-  }
-
-  async handleSubmit() {
-    this.setState({ loading: true, error: null })
+  async function handleSubmit() {
+    setLoading(true)
+    setError(null)
     try {
-      await this.props.onSubmit(this.state.value)
-      this.base = this.state
+      if (props.onSubmit) {
+        await props.onSubmit(value)
+      }
+      setBaseValue(value)
     } catch (error) {
-      this.setState({ error })
+      setError(error)
     } finally {
-      this.setState({ loading: false })
+      setLoading(false)
     }
   }
 
-  render() {
-    const hasChanged = !isEqual(this.base.value, this.state.value)
+  function handleCancel() {
+    setState(baseValue)
+    props.onCancel && props.onCancel()
+  }
 
-    return this.props.children({
-      hasChanged,
-      value: this.state.value,
-      loading: this.state.loading,
-      error: this.state.error,
-      onChange: this.handleChange,
-      onInputChange: this.handleInputChange,
-      onCancel: this.handleCancel,
-      onSubmit: this.handleSubmit
-    })
+  return {
+    hasChanged,
+    value,
+    loading,
+    error,
+    onChange: setState,
+    onInputChange: e => setState(e.target.value),
+    onCancel: handleCancel,
+    onSubmit: handleSubmit
   }
 }
+
+function noop() {}
+export const TempValue = memo(function TempValue(props) {
+  const all = useTempValue(props)
+
+  return props.children(all)
+})
 
 TempValue.defaultProps = {
   onCancel: noop,
   onSubmit: noop
 }
-
-export default TempValue;

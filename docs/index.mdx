@@ -9,12 +9,12 @@ order: 1
 
 ### TempValue
 
-import {TempValue} from '..'
+import {TempValue} from '../src/TempValue'
 
-<TempValue value="Initial Value">
+<TempValue initialValue="Mike">
   {({ hasChanged, value, onInputChange, onSubmit, onCancel }) => (
-    <form>
-      <input value={value} onChange={onInputChange} />
+    <form onSubmit={e => e.preventDefault()}>
+      <input value={value || ''} onChange={onInputChange} />
       <button disabled={!hasChanged} onClick={onSubmit}>Submit</button>
       <button disabled={!hasChanged} onClick={onCancel}>Cancel</button>
     </form>

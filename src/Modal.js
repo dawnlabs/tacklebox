@@ -4,7 +4,7 @@ import enhanceWithClickOutside from 'react-click-outside'
 const ESCAPE_KEY = 27
 
 const ClickAway = enhanceWithClickOutside(
-  class extends React.Component {
+  class WrappedComponent extends React.Component {
     constructor(props) {
       super(props)
       this.escFunction = this.escFunction.bind(this)

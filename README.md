@@ -66,7 +66,7 @@ import {TempValue} from 'actionsack'
 
 const someInitialValue = 'Mike' // can be an object too
 
-<TempValue value={someInitialValue}>
+<TempValue initialValue={someInitialValue}>
   {({ hasChanged, value, loading, error, onInputChange, onSubmit, onCancel }) => (
     <form onSubmit(e => { e.preventDefault(); onSubmit() })>
       {error && <span>{error}</span>}
