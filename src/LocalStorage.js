@@ -24,15 +24,15 @@ class LocalStorage extends React.Component {
       // if the key exists in localStorage
       if (localStorage.hasOwnProperty(key)) {
         // get the key's value from localStorage
-        let value = localStorage.getItem(key);
+        let value = localStorage.getItem(key)
 
         // parse the localStorage string and setState
         try {
-          value = JSON.parse(value);
-          component.setState({ [key]: value });
+          value = JSON.parse(value)
+          component.setState({ [key]: value })
         } catch (e) {
           // handle empty string
-          component.setState({ [key]: value });
+          component.setState({ [key]: value })
         }
       }
     })
@@ -76,8 +76,7 @@ class LocalStorage extends React.Component {
 
   update(changes) {
     this.setState(changes, () => {
-      Object.keys(this.state).map(key =>
-        this.handleStorageUpdate(key, changes[key]))
+      Object.keys(this.state).map(key => this.handleStorageUpdate(key, changes[key]))
     })
   }
 
@@ -86,9 +85,8 @@ class LocalStorage extends React.Component {
     this.clearState()
   }
 
-  clearState(){
-    Object.keys(this.state).forEach(key =>
-      this.normalizeSetState(key, undefined))
+  clearState() {
+    Object.keys(this.state).forEach(key => this.normalizeSetState(key, undefined))
   }
 
   render() {
@@ -100,4 +98,4 @@ class LocalStorage extends React.Component {
   }
 }
 
-export default LocalStorage;
+export default LocalStorage

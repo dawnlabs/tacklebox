@@ -1,5 +1,5 @@
 import React from 'react'
-import CopyToClipboard from 'react-copy-to-clipboard';
+import CopyToClipboard from 'react-copy-to-clipboard'
 
 class CopyButton extends React.Component {
   constructor(props) {
@@ -12,20 +12,14 @@ class CopyButton extends React.Component {
   }
 
   onCopy() {
-    this.setState({copied: true});
-    const component = this;
-    setTimeout(
-      () => component.setState({copied: false}),
-      this.props.interval == null ? 1000 : this.props.interval
-    );
+    this.setState({ copied: true })
+    const component = this
+    setTimeout(() => component.setState({ copied: false }), this.props.interval == null ? 1000 : this.props.interval)
   }
 
   render() {
     return (
-      <CopyToClipboard
-        text={this.props.text}
-        onCopy={this.onCopy}
-      >
+      <CopyToClipboard text={this.props.text} onCopy={this.onCopy}>
         {this.props.children({
           copied: this.state.copied
         })}
@@ -34,4 +28,4 @@ class CopyButton extends React.Component {
   }
 }
 
-export default CopyButton;
+export default CopyButton

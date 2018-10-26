@@ -21,8 +21,11 @@ class AsyncButton extends React.Component {
   }
 
   render() {
-    return this.props.children({ loading: this.state.loading, onClick: this.onClick })
+    return this.props.children({
+      loading: this.state.loading,
+      onClick: this.onClick
+    })
   }
 }
 
-export default AsyncButton;
+export default AsyncButton
