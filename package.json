@@ -5,7 +5,9 @@
   "main": "dist/actionsack.umd.js",
   "scripts": {
     "test": "jest",
-    "build": "rollup --config"
+    "build": "rollup --config",
+    "docz:dev": "docz dev",
+    "docz:build": "docz build"
   },
   "keywords": [
     "react",
@@ -16,10 +18,10 @@
   "author": "dawnlabs",
   "license": "MIT",
   "dependencies": {
-    "react": "^16.0.0",
+    "react": "^16.7.0-alpha.0",
     "react-click-outside": "^3.0.1",
     "react-copy-to-clipboard": "^5.0.1",
-    "react-dom": "^16.4.2"
+    "react-dom": "^16.7.0-alpha.0"
   },
   "devDependencies": {
     "babel-core": "^6.26.3",
@@ -27,6 +29,7 @@
     "babel-plugin-transform-runtime": "^6.23.0",
     "babel-preset-env": "^1.7.0",
     "babel-preset-react": "^6.24.1",
+    "docz": "^0.12.5",
     "rollup": "^0.64.1",
     "rollup-plugin-babel": "^3.0.7",
     "rollup-plugin-commonjs": "^9.1.5",
