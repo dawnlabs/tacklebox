@@ -60,7 +60,8 @@ import {Modal} from 'actionsack'
 ### CopyButton
 > `render-prop` container
 
-Button that copies to clipboard and handles interval to display copy text
+Button that copies to clipboard and handles interval to display copy text.
+**Note**: you must render a `<button>` in order to copy the text.
 
 ##### Example
 ```javascript
