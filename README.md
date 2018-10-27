@@ -98,7 +98,7 @@ const submit = () => new Promise((resolve) => {
 ### `useTempValue`
 > `hook` 🎣
 
-Hook that gives you a temporary state value that you can either commit with `onSubmit` or revert with `onCancel`
+Hook that gives you a temporary state value that you can either commit with `onSubmit` or revert with `onCancel`. Used by [`TempValue`](#tempvalue).
 
 ##### Example
 
