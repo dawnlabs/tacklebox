@@ -5,7 +5,7 @@
 > 🎣 `hook`
 
 Takes any function and gives you a loading and error state. Good for handling
-general async interactions
+general async interactions. Used by [`AsyncButton`](#modal).
 
 ```js
 import {useAsyncCallback} from 'actionsack'
@@ -25,7 +25,7 @@ function MyAsyncButton(props) {
 ### `useKeyboardListener`
 > 🎣 `hook`
 
-Pass it a keyboard key and a handler to automatically listen for keyboard clicks
+Pass it a keyboard key and a handler to automatically listen for keyboard clicks. Used by [`Modal`](#modal).
 
 
 ##### Example
