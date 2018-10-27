@@ -56,11 +56,50 @@ const submit = () => new Promise((resolve) => {
 ```
 
 ### TempValue
-> `render-prop` container
+> `hook` 🎣 and `render-prop` container
 
-Container that stores a temporary value that you can either commit or discard. Useful for forms that with state you might reset.
+Stores a temporary value that you can either commit or discard. Useful for forms that with state you might reset.
 
-##### Example
+##### Hook Example
+```javascript
+import {useTempValue} from 'actionsack'
+
+function MyForm(props) {
+  const initialName = props.name
+  const {
+    hasChanged,
+    value,
+    onInputChange,
+    onSubmit,
+    onCancel
+  } = useTempValue(initialName)
+
+  return (
+    <form onSubmit={e => e.preventDefault()}>
+      <input value={value || ''} onChange={onInputChange} />
+      <button disabled={!hasChanged} onClick={onSubmit}>Submit</button>
+      <button disabled={!hasChanged} onClick={onCancel}>Cancel</button>
+    </form>
+  )
+}
+
+<TempValue initialValue={someInitialValue}>
+  {({ hasChanged, value, loading, error, onInputChange, onSubmit, onCancel }) => (
+    <form onSubmit(e => { e.preventDefault(); onSubmit() })>
+      {error && <span>{error}</span>}
+      <input name="name" value={value} onChange={onInputChange} />
+      <button disabled={!hasChanged || loading} type="submit">
+        Submit
+      </button
+      <button disabled={!hasChanged || loading} onClick={onCancel}>
+        Cancel
+      </button
+    </form>
+  )}
+</TempValue>
+```
+
+##### Container Example
 ```javascript
 import {TempValue} from 'actionsack'
 
