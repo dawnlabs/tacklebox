@@ -2,7 +2,7 @@ import React from 'react'
 
 const toString = value => JSON.stringify(value)
 
-class LocalStorage extends React.Component {
+export class LocalStorage extends React.Component {
   constructor(props) {
     super(props)
 
@@ -97,5 +97,3 @@ class LocalStorage extends React.Component {
     })
   }
 }
-
-export default LocalStorage
