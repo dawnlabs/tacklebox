@@ -1,6 +1,8 @@
 # Action Sack 🎒
 > Collection of React user-experience hooks + containers for common interactions
 
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](http://makeapullrequest.com)
+
 ### `useAsyncCallback`
 > 🎣 `hook`
 
@@ -170,3 +172,6 @@ import {LocalStorage} from 'actionsack'
   )}
 </LocalStorage>
 ```
+
+### License
+MIT
