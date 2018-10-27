@@ -14,7 +14,10 @@ export class CopyButton extends React.PureComponent {
   onCopy() {
     this.setState({ copied: true })
     const component = this
-    setTimeout(() => component.setState({ copied: false }), this.props.interval == null ? 1000 : this.props.interval)
+    setTimeout(
+      () => component.setState({ copied: false }),
+      this.props.interval == null ? 1000 : this.props.interval
+    )
   }
 
   render() {
