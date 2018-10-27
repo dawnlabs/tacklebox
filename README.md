@@ -22,6 +22,24 @@ function MyAsyncButton(props) {
 }
 ```
 
+### `useKeyboardListener`
+> 🎣 `hook`
+
+Pass it a keyboard key and a handler to automatically listen for keyboard clicks
+
+
+##### Example
+```js
+import {useKeyboardListener} from 'actionsack'
+
+function Modal(props) {
+  useKeyboardListener('Escape', props.onClose)
+
+  return (
+    <div>Hello World</div>
+  )
+}
+```
 
 ### Modal
 > `wrapper HOC` component

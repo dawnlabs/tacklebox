@@ -36,3 +36,7 @@ import {AsyncButton} from '../src/AsyncButton'
 <AsyncButton onClick={() => new Promise(res => setTimeout(function () { res() }, 1000))}>
   {({ loading, onClick }) => <button onClick={onClick}>{loading ? 'Saving...': 'Save'}</button>}
 </AsyncButton>
+
+import {Modal} from '../src/Modal'
+
+<Modal open={true} onClickAway={e => console.log(e.key)}>{null}</Modal>
