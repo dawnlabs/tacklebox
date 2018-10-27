@@ -3,40 +3,55 @@ name: Action Sack
 route: /
 order: 1
 ---
+import { Playground } from 'docz'
 
 # Action Sack
 > Collection of React user-experience containers for common interactions
 
-### TempValue
+## TempValue
 
 import {TempValue} from '../src/TempValue'
 
-<TempValue initialValue="Mike">
-  {({ hasChanged, value, onInputChange, onSubmit, onCancel }) => (
-    <form onSubmit={e => e.preventDefault()}>
-      <input value={value || ''} onChange={onInputChange} />
-      <button disabled={!hasChanged} onClick={onSubmit}>Submit</button>
-      <button disabled={!hasChanged} onClick={onCancel}>Cancel</button>
-    </form>
-  )}
-</TempValue>
+<Playground>
+  <TempValue initialValue="Mike">
+    {({ hasChanged, value, onInputChange, onSubmit, onCancel }) => (
+      <form onSubmit={e => e.preventDefault()}>
+        <input value={value || ''} onChange={onInputChange} />
+        <button disabled={!hasChanged} onClick={onSubmit}>Submit</button>
+        <button disabled={!hasChanged} onClick={onCancel}>Cancel</button>
+      </form>
+    )}
+  </TempValue>
+</Playground>
 
-### CopyButton
+## CopyButton
 
 import {CopyButton} from '../src/CopyButton'
 
-<CopyButton text="Copied!">
-  {({ copied }) => <button>{copied ? 'Copied!': 'Copy'}</button>}
-</CopyButton>
+<Playground>
+  <CopyButton text="Copied!">
+    {({ copied }) => <button>{copied ? 'Copied!': 'Copy'}</button>}
+  </CopyButton>
+</Playground>
 
-### AsyncButton
+## AsyncButton
 
 import {AsyncButton} from '../src/AsyncButton'
 
-<AsyncButton onClick={() => new Promise(res => setTimeout(function () { res() }, 1000))}>
-  {({ loading, onClick }) => <button onClick={onClick}>{loading ? 'Saving...': 'Save'}</button>}
-</AsyncButton>
+<Playground>
+  <AsyncButton onClick={() => new Promise(res => setTimeout(function () { res() }, 1000))}>
+    {({ loading, onClick }) => <button onClick={onClick}>{loading ? 'Saving...': 'Save'}</button>}
+  </AsyncButton>
+</Playground>
 
+
+## Modal
 import {Modal} from '../src/Modal'
 
-<Modal open={true} onClickAway={e => console.log(e.key)}>{null}</Modal>
+<Playground>
+  <Modal open={true} onClickAway={console.log}>
+    <div>
+      <h2>Hey all</h2>
+    </div>
+  </Modal>
+</Playground>

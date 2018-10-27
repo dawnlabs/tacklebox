@@ -155,23 +155,5 @@ const someInitialValue = 'Mike' // can be an object too
 </TempValue>
 ```
 
-### LocalStorage
-> `render-prop` container
-
-Container keeps local storage and local state in sync
-
-##### Example
-```javascript
-import {LocalStorage} from 'actionsack'
-
-<LocalStorage>
-  {({ state, setState }) => (
-    <button onClick={() => setState(({count}) => ({count: count + 1}))}>
-      {state.count}
-    </button>
-  )}
-</LocalStorage>
-```
-
 ### License
 MIT
