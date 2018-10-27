@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { memo } from 'react'
 import enhanceWithClickOutside from 'react-click-outside'
 
 const ESCAPE_KEY = 27
@@ -14,7 +14,7 @@ const ClickAway = enhanceWithClickOutside(
     }
     escFunction(event) {
       if (event.keyCode === ESCAPE_KEY) {
-        this.props.onClickAway()
+        this.props.onClickAway(event)
       }
     }
     componentDidMount() {
@@ -30,8 +30,8 @@ const ClickAway = enhanceWithClickOutside(
   }
 )
 
-const Modal = props => <ClickAway onClickAway={props.onClickAway}>{props.open ? props.children : null}</ClickAway>
+export const Modal = memo(props => (
+  <ClickAway onClickAway={props.onClickAway}>{props.open ? props.children : null}</ClickAway>
+))
 
 Modal.displayName = 'Modal'
-
-export default Modal

@@ -20,3 +20,19 @@ import {TempValue} from '../src/TempValue'
     </form>
   )}
 </TempValue>
+
+### CopyButton
+
+import {CopyButton} from '../src/CopyButton'
+
+<CopyButton text="Copied!">
+  {({ copied }) => <button>{copied ? 'Copied!': 'Copy'}</button>}
+</CopyButton>
+
+### AsyncButton
+
+import {AsyncButton} from '../src/AsyncButton'
+
+<AsyncButton onClick={() => new Promise(res => setTimeout(function () { res() }, 1000))}>
+  {({ loading, onClick }) => <button onClick={onClick}>{loading ? 'Saving...': 'Save'}</button>}
+</AsyncButton>

@@ -1,5 +1,5 @@
 # Action Sack 🎒
-> Collection of React user-experience containers for common interactions
+> Collection of React user-experience hooks + containers for common interactions
 
 ### Modal
 > `wrapper HOC` component

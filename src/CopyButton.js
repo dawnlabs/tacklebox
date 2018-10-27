@@ -1,7 +1,7 @@
 import React from 'react'
 import CopyToClipboard from 'react-copy-to-clipboard'
 
-class CopyButton extends React.Component {
+export class CopyButton extends React.PureComponent {
   constructor(props) {
     super(props)
 
@@ -27,5 +27,3 @@ class CopyButton extends React.Component {
     )
   }
 }
-
-export default CopyButton

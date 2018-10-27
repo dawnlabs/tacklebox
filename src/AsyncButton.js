@@ -1,31 +1,30 @@
-import React from 'react'
+import { memo, useState } from 'react'
 
-class AsyncButton extends React.Component {
-  constructor(props) {
-    super(props)
+const useAsyncCallback = function(cb, initiallyLoading = false) {
+  const [loading, setLoading] = useState(initiallyLoading)
+  const [error, setError] = useState(null)
 
-    this.state = {
-      loading: this.props.initiallyLoading || false
+  return {
+    loading,
+    error,
+    onAction: async function(...props) {
+      setLoading(true)
+      try {
+        return await cb(...props)
+      } catch (e) {
+        setError(e)
+      } finally {
+        setLoading(false)
+      }
     }
-
-    this.onClick = this.onClick.bind(this)
-  }
-
-  async onClick(e) {
-    this.setState({ loading: true })
-    try {
-      await this.props.onClick(e)
-    } finally {
-      this.setState({ loading: false })
-    }
-  }
-
-  render() {
-    return this.props.children({
-      loading: this.state.loading,
-      onClick: this.onClick
-    })
   }
 }
 
-export default AsyncButton
+export const AsyncButton = memo(function AsyncButton(props) {
+  const { loading, error, onAction } = useAsyncCallback(props.onClick, props.initiallyLoading)
+  return props.children({
+    loading,
+    error,
+    onClick: onAction
+  })
+})
