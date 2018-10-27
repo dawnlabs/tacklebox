@@ -1,6 +1,6 @@
 import { memo, useState } from 'react'
 
-const useAsyncCallback = function(cb, initiallyLoading = false) {
+export const useAsyncCallback = function(cb, initiallyLoading = false) {
   const [loading, setLoading] = useState(initiallyLoading)
   const [error, setError] = useState(null)
 
@@ -9,6 +9,7 @@ const useAsyncCallback = function(cb, initiallyLoading = false) {
     error,
     onAction: async function(...props) {
       setLoading(true)
+      setError(null)
       try {
         return await cb(...props)
       } catch (e) {
