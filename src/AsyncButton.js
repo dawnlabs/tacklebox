@@ -4,10 +4,8 @@ export const useAsyncCallback = function(cb, initiallyLoading = false) {
   const [loading, setLoading] = useState(initiallyLoading)
   const [error, setError] = useState(null)
 
-  return {
-    loading,
-    error,
-    onAction: async function(...props) {
+  return [
+    async function(...props) {
       setLoading(true)
       setError(null)
       try {
@@ -17,15 +15,19 @@ export const useAsyncCallback = function(cb, initiallyLoading = false) {
       } finally {
         setLoading(false)
       }
+    },
+    {
+      loading,
+      error,
     }
-  }
+  ]
 }
 
 export const AsyncButton = memo(function AsyncButton(props) {
-  const { loading, error, onAction } = useAsyncCallback(props.onClick, props.initiallyLoading)
+  const [onClick, { loading, error }] = useAsyncCallback(props.onClick, props.initiallyLoading)
   return props.children({
     loading,
     error,
-    onClick: onAction
+    onClick
   })
 })

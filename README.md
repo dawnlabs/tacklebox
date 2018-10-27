@@ -11,12 +11,12 @@ general async interactions. Used by [`AsyncButton`](#asyncbutton).
 import {useAsyncCallback} from 'actionsack'
 
 function MyAsyncButton(props) {
-  const { loading, error, onAction } = useAsyncCallback(props.onClick)
+  const [onClick, {loading, error}] = useAsyncCallback(props.onClick)
 
   return (
     <>
       {error && <span>{error}!</span>}
-      <button onClick={onAction}>{loading ? 'Saving...' : 'Save'}</button>  
+      <button onClick={onClick}>{loading ? 'Saving...' : 'Save'}</button>  
     </>
   )
 }
