@@ -1,6 +1,6 @@
 import { memo, useState } from 'react'
 
-export const useAsyncCallback = function(cb) {
+export function useAsyncCallback(cb) {
   const [loading, setLoading] = useState(null)
   const [error, setError] = useState(null)
 
