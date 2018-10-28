@@ -1,5 +1,7 @@
 import { memo, useState, useMemo } from 'react'
 
+import { useAsyncCallback } from '.'
+
 const isEqual = (source, target) => {
   if (source === target) {
     return true
@@ -19,25 +21,15 @@ const isEqual = (source, target) => {
 export function useTempValue(initialValue, { onSubmit, onReset } = {}) {
   const [value, setState] = useState(initialValue)
   const [baseValue, setBaseValue] = useState(initialValue)
-  const [error, setError] = useState(null)
-  const [loading, setLoading] = useState(false)
 
-  const hasChanged = !useMemo(() => isEqual(baseValue, value), [value])
+  const hasChanged = !useMemo(() => isEqual(baseValue, value), [baseValue, value])
 
-  async function handleSubmit() {
-    setLoading(true)
-    setError(null)
-    try {
-      if (onSubmit) {
-        await onSubmit(value)
-      }
-      setBaseValue(value)
-    } catch (error) {
-      setError(error)
-    } finally {
-      setLoading(false)
+  const [handleSubmit, { loading, error }] = useAsyncCallback(async () => {
+    if (onSubmit) {
+      await onSubmit(value)
     }
-  }
+    setBaseValue(value)
+  })
 
   function handleReset() {
     if (onReset) {
@@ -58,13 +50,13 @@ export function useTempValue(initialValue, { onSubmit, onReset } = {}) {
   }
 }
 
-function noop() {}
 export const TempValue = memo(function TempValue(props) {
   const all = useTempValue(props.initialValue, props)
 
   return props.children(all)
 })
 
+function noop() {}
 TempValue.defaultProps = {
   onReset: noop,
   onSubmit: noop
