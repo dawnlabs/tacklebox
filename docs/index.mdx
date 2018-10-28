@@ -14,11 +14,11 @@ import {TempValue} from '../src/TempValue'
 
 <Playground>
   <TempValue initialValue="Mike">
-    {({ hasChanged, value, onInputChange, onSubmit, onCancel }) => (
+    {({ hasChanged, value, onInputChange, submit, reset }) => (
       <form onSubmit={e => e.preventDefault()}>
         <input value={value || ''} onChange={onInputChange} />
-        <button disabled={!hasChanged} onClick={onSubmit}>Submit</button>
-        <button disabled={!hasChanged} onClick={onCancel}>Cancel</button>
+        <button disabled={!hasChanged} onClick={submit}>Submit</button>
+        <button disabled={!hasChanged} onClick={reset}>Cancel</button>
       </form>
     )}
   </TempValue>
@@ -49,7 +49,7 @@ import {AsyncButton} from '../src/AsyncButton'
 import {Modal} from '../src/Modal'
 
 <Playground>
-  <Modal open={true} onClickAway={console.log}>
+  <Modal open={true} onClickAway={() => {}}>
     <div>
       <h2>Hey all</h2>
     </div>

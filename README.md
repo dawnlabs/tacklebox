@@ -101,7 +101,7 @@ const submit = () => new Promise((resolve) => {
 ### `useTempValue`
 > `hook` 🎣
 
-Hook that gives you a temporary state value that you can either commit with `onSubmit` or revert with `onCancel`. Used by [`TempValue`](#tempvalue).
+Hook that gives you a temporary state value that you can either commit with `submit` or revert with `reset`. Used by [`TempValue`](#tempvalue).
 
 ##### Example
 
@@ -114,15 +114,15 @@ function MyForm(props) {
     hasChanged,
     value,
     onInputChange,
-    onSubmit,
-    onCancel
+    submit,
+    reset
   } = useTempValue(initialName)
 
   return (
     <form onSubmit={e => e.preventDefault()}>
       <input value={value || ''} onChange={onInputChange} />
-      <button disabled={!hasChanged} onClick={onSubmit}>Submit</button>
-      <button disabled={!hasChanged} onClick={onCancel}>Cancel</button>
+      <button disabled={!hasChanged} onClick={submit}>Submit</button>
+      <button disabled={!hasChanged} onClick={reset}>Cancel</button>
     </form>
   )
 }
@@ -140,14 +140,14 @@ import {TempValue} from 'actionsack'
 const someInitialValue = 'Mike' // can be an object too
 
 <TempValue initialValue={someInitialValue}>
-  {({ hasChanged, value, loading, error, onInputChange, onSubmit, onCancel }) => (
-    <form onSubmit(e => { e.preventDefault(); onSubmit() })>
+  {({ hasChanged, value, loading, error, onInputChange, submit, reset }) => (
+    <form onSubmit(e => { e.preventDefault(); submit(); })>
       {error && <span>{error}</span>}
       <input name="name" value={value} onChange={onInputChange} />
       <button disabled={!hasChanged || loading} type="submit">
         Submit
       </button
-      <button disabled={!hasChanged || loading} onClick={onCancel}>
+      <button disabled={!hasChanged || loading} onClick={reset}>
         Cancel
       </button
     </form>

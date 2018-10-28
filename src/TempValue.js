@@ -16,9 +16,9 @@ const isEqual = (source, target) => {
   return false
 }
 
-export function useTempValue(props) {
-  const [value, setState] = useState(props.initialValue)
-  const [baseValue, setBaseValue] = useState(props.initialValue)
+export function useTempValue(initialValue, { onSubmit, onReset } = {}) {
+  const [value, setState] = useState(initialValue)
+  const [baseValue, setBaseValue] = useState(initialValue)
   const [error, setError] = useState(null)
   const [loading, setLoading] = useState(false)
 
@@ -28,8 +28,8 @@ export function useTempValue(props) {
     setLoading(true)
     setError(null)
     try {
-      if (props.onSubmit) {
-        await props.onSubmit(value)
+      if (onSubmit) {
+        await onSubmit(value)
       }
       setBaseValue(value)
     } catch (error) {
@@ -39,9 +39,11 @@ export function useTempValue(props) {
     }
   }
 
-  function handleCancel() {
+  function handleReset() {
+    if (onReset) {
+      onReset(value)
+    }
     setState(baseValue)
-    props.onCancel && props.onCancel()
   }
 
   return {
@@ -51,19 +53,19 @@ export function useTempValue(props) {
     error,
     onChange: setState,
     onInputChange: e => setState(e.target.value),
-    onCancel: handleCancel,
-    onSubmit: handleSubmit
+    reset: handleReset,
+    submit: handleSubmit
   }
 }
 
 function noop() {}
 export const TempValue = memo(function TempValue(props) {
-  const all = useTempValue(props)
+  const all = useTempValue(props.initialValue, props)
 
   return props.children(all)
 })
 
 TempValue.defaultProps = {
-  onCancel: noop,
+  onReset: noop,
   onSubmit: noop
 }

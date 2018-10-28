@@ -18,7 +18,7 @@ export const useAsyncCallback = function(cb, initiallyLoading = false) {
     },
     {
       loading,
-      error,
+      error
     }
   ]
 }
