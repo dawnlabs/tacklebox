@@ -7,7 +7,7 @@
 > 🎣 `hook`
 
 Takes any function and gives you a loading and error state. Good for handling
-general async interactions. Used by [`AsyncButton`](#asyncbutton).
+general asynchronous interactions. Used by [`AsyncButton`](#asyncbutton).
 
 ```js
 import {useAsyncCallback} from 'actionsack'
