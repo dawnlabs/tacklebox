@@ -13,12 +13,13 @@ general asynchronous interactions. Used by [`AsyncButton`](#asyncbutton), [`Temp
 import {useAsyncCallback} from 'actionsack'
 
 function MyAsyncButton(props) {
-  const [onClick, {loading, error}] = useAsyncCallback(props.onClick)
+  const [onClick, {loading, error, data}] = useAsyncCallback(props.onClick)
 
   return (
     <>
       {error && <span>{error}!</span>}
       <button onClick={onClick}>{loading ? 'Saving...' : 'Save'}</button>  
+      {data && <span>Success! {data}</span>}
     </>
   )
 }

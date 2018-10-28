@@ -24,7 +24,7 @@ export function useTempValue(initialValue, { onSubmit, onReset } = {}) {
 
   const hasChanged = !useMemo(() => isEqual(baseValue, value), [baseValue, value])
 
-  const [handleSubmit, { loading, error }] = useAsyncCallback(async () => {
+  const [handleSubmit, { data, loading, error }] = useAsyncCallback(async () => {
     if (onSubmit) {
       await onSubmit(value)
     }
@@ -39,12 +39,14 @@ export function useTempValue(initialValue, { onSubmit, onReset } = {}) {
   }
 
   return {
-    hasChanged,
     value,
+    hasChanged,
+    data,
     loading,
     error,
     onChange: setState,
     onInputChange: e => setState(e.target.value),
+
     reset: handleReset,
     submit: handleSubmit
   }

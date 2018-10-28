@@ -3,13 +3,16 @@ import { memo, useState } from 'react'
 export function useAsyncCallback(cb) {
   const [loading, setLoading] = useState(null)
   const [error, setError] = useState(null)
+  const [data, setData] = useState(null)
 
   return [
     async function(...props) {
       setLoading(true)
       setError(null)
       try {
-        return await cb(...props)
+        const response = await cb(...props)
+        setData(response)
+        return response
       } catch (e) {
         setError(e)
       } finally {
@@ -17,6 +20,7 @@ export function useAsyncCallback(cb) {
       }
     },
     {
+      data,
       loading,
       error
     }
@@ -24,8 +28,9 @@ export function useAsyncCallback(cb) {
 }
 
 export const AsyncButton = memo(function AsyncButton(props) {
-  const [onClick, { loading, error }] = useAsyncCallback(props.onClick)
+  const [onClick, { data, loading, error }] = useAsyncCallback(props.onClick)
   return props.children({
+    data,
     loading,
     error,
     onClick
