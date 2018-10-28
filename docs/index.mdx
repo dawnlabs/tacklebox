@@ -10,7 +10,7 @@ import { Playground } from 'docz'
 
 ## TempValue
 
-import {TempValue} from '../src/TempValue'
+import {TempValue} from '../src'
 
 <Playground>
   <TempValue initialValue="Mike">
@@ -26,7 +26,7 @@ import {TempValue} from '../src/TempValue'
 
 ## CopyButton
 
-import {CopyButton} from '../src/CopyButton'
+import {CopyButton} from '../src'
 
 <Playground>
   <CopyButton text="Copied!">
@@ -36,7 +36,7 @@ import {CopyButton} from '../src/CopyButton'
 
 ## AsyncButton
 
-import {AsyncButton} from '../src/AsyncButton'
+import {AsyncButton} from '../src'
 
 <Playground>
   <AsyncButton onClick={() => new Promise(res => setTimeout(function () { res() }, 1000))}>
@@ -46,7 +46,7 @@ import {AsyncButton} from '../src/AsyncButton'
 
 
 ## Modal
-import {Modal} from '../src/Modal'
+import {Modal} from '../src'
 
 <Playground>
   <Modal open={true} onClickAway={() => {}}>
