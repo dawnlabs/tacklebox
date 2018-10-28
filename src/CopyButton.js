@@ -1,32 +1,18 @@
-import React from 'react'
+import React, { memo } from 'react'
 import CopyToClipboard from 'react-copy-to-clipboard'
 
-export class CopyButton extends React.PureComponent {
-  constructor(props) {
-    super(props)
+import { useAsyncCallback } from './AsyncButton'
 
-    this.state = {
-      copied: false
-    }
-    this.onCopy = this.onCopy.bind(this)
-  }
+const wait = t => () => new Promise(res => setTimeout(res, t))
 
-  onCopy() {
-    this.setState({ copied: true })
-    const component = this
-    setTimeout(
-      () => component.setState({ copied: false }),
-      this.props.interval == null ? 1000 : this.props.interval
-    )
-  }
+export const CopyButton = memo(function CopyButton(props) {
+  const [onCopy, { loading: copied }] = useAsyncCallback(
+    wait(props.interval == null ? 1000 : props.interval)
+  )
 
-  render() {
-    return (
-      <CopyToClipboard text={this.props.text} onCopy={this.onCopy}>
-        {this.props.children({
-          copied: this.state.copied
-        })}
-      </CopyToClipboard>
-    )
-  }
-}
+  return (
+    <CopyToClipboard text={props.text} onCopy={onCopy}>
+      {props.children({ copied })}
+    </CopyToClipboard>
+  )
+})
