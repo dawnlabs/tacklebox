@@ -22,10 +22,7 @@ export const useKeyboardListener = function(key, handler) {
 const ESCAPE_KEY = 'Escape'
 
 const ClickAway = enhanceWithClickOutside(
-  class WrappedComponent extends React.Component {
-    constructor(props) {
-      super(props)
-    }
+  class WrappedComponent extends React.PureComponent {
     handleClickOutside(e) {
       this.props.onClickAway(e)
     }
