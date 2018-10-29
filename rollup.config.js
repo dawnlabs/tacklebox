@@ -14,13 +14,8 @@ const umd = {
   plugins: [
     babel({
       exclude: 'node_modules/**',
-      presets: [
-        ['@babel/env', { 'modules': false }],
-        '@babel/react'
-      ],
       runtimeHelpers: true,
-      plugins: ['@babel/external-helpers', '@babel/transform-runtime'],
-      babelrc: false
+      babelrc: true
     })
   ]
 }

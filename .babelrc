@@ -1,0 +1,12 @@
+{
+  "presets": [
+    ["@babel/env", { "modules": false }],
+    "@babel/react"
+  ],
+  "plugins": ["@babel/external-helpers", "@babel/transform-runtime"],
+  "env": {
+    "test": {
+      "presets": ["@babel/env", "@babel/react"]
+    }
+  }
+}
