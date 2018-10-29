@@ -1,4 +1,4 @@
-# Action Sack 🎒
+# Tackle Box 🎣
 > Collection of React user-experience hooks + containers for common interactions
 
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](http://makeapullrequest.com)
@@ -10,7 +10,7 @@ Takes any function and gives you a loading and error state. Good for handling
 general asynchronous interactions. Used by [`AsyncButton`](#asyncbutton), [`TempValue`](#tempvalue), and [`CopyButton`](#copybutton).
 
 ```js
-import {useAsyncCallback} from 'actionsack'
+import {useAsyncCallback} from 'tackle-box'
 
 function MyAsyncButton(props) {
   const [onClick, {loading, error, data}] = useAsyncCallback(props.onClick)
@@ -33,7 +33,7 @@ Pass it a keyboard key and a handler to automatically listen for keyboard clicks
 
 ##### Example
 ```js
-import {useKeyboardListener} from 'actionsack'
+import {useKeyboardListener} from 'tackle-box'
 
 function Modal(props) {
   useKeyboardListener('Escape', props.onClose)
@@ -51,7 +51,7 @@ Class controlled Modal component with click-away and ESC-key to close
 
 ##### Example
 ```javascript
-import {Modal} from 'actionsack'
+import {Modal} from 'tackle-box'
 
 <Modal open={this.state.open} onClickAway={() => this.setState({ open: false})}>
   <form>
@@ -68,10 +68,10 @@ Button that copies to clipboard and handles interval to display copy text.
 
 ##### Example
 ```javascript
-import {CopyButton} from 'actionsack'
+import {CopyButton} from 'tackle-box'
 const interval = 2 * 1000 // 2 seconds
 
-<CopyButton text="https://github.com/dawnlabs/actionsack" interval={interval}>
+<CopyButton text="https://github.com/dawnlabs/tackle-box" interval={interval}>
   {({ copied }) => (
     <button>{copied ? 'COPIED!' : 'Copy URL'}</button>
   )}
@@ -85,7 +85,7 @@ Button that automatically sets loading for asynchronous button actions
 
 ##### Example
 ```javascript
-import {AsyncButton} from 'actionsack'
+import {AsyncButton} from 'tackle-box'
 const submit = () => new Promise((resolve) => {
   setTimeout(resolve, 10000, true);
 })
@@ -107,7 +107,7 @@ Hook that gives you a temporary state value that you can either commit with `sub
 ##### Example
 
 ```javascript
-import {useTempValue} from 'actionsack'
+import {useTempValue} from 'tackle-box'
 
 function MyForm(props) {
   const initialName = props.name
@@ -136,7 +136,7 @@ Container that stores a temporary value that you can either commit or discard. U
 
 ##### Example
 ```javascript
-import {TempValue} from 'actionsack'
+import {TempValue} from 'tackle-box'
 
 const someInitialValue = 'Mike' // can be an object too
 
