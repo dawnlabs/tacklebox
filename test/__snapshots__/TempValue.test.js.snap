@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<TempValue /> should children correctly 1`] = `
+<form>
+  <span>
+    Current Value: 
+    
+  </span>
+  <input
+    placeholder="Value"
+    value=""
+  />
+  <button
+    disabled=""
+  >
+    Submit
+  </button>
+  <button
+    disabled=""
+  >
+    Reset
+  </button>
+</form>
+`;

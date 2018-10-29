@@ -5,6 +5,7 @@
   "main": "dist/actionsack.umd.js",
   "scripts": {
     "test": "jest",
+    "coverage": "yarn test --coverage",
     "build": "rollup --config",
     "docz:dev": "docz dev",
     "docz:build": "docz build",
