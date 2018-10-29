@@ -1,7 +1,7 @@
 import React from 'react'
 import { render, fireEvent, wait } from 'react-testing-library'
 
-import { TempValue } from '../src'
+import { useTempValue, TempValue } from '../src'
 
 const updateInput = (input, value) =>
   fireEvent.change(input, {
@@ -11,6 +11,24 @@ const updateInput = (input, value) =>
   })
 
 describe('<TempValue />', () => {
+  test('useTempValue() hook', () => {
+    function MyComponent() {
+      const { reset, submit } = useTempValue()
+
+      return (
+        <div>
+          <button onClick={submit}>Submit</button>
+          <button onClick={reset}>Reset</button>
+        </div>
+      )
+    }
+
+    const {getByText} = render(<MyComponent />)
+
+    fireEvent.click(getByText('Submit'))
+    fireEvent.click(getByText('Reset'))
+  })
+
   test('should children correctly', async () => {
     const onSubmit = jest.fn(() => Promise.resolve())
     const { getByPlaceholderText, getByText, container } = render(
