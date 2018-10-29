@@ -9,7 +9,7 @@
     "docz:dev": "docz dev",
     "docz:build": "docz build",
     "lint": "eslint src",
-    "prettier": "prettier --single-quote --no-semi --print-width 100 --write src/*.js"
+    "prettier": "prettier --single-quote --no-semi --print-width 100 --write src/*.js test/*.js"
   },
   "keywords": [
     "react",

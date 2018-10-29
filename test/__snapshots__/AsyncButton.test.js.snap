@@ -1,24 +1,24 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`should render children 1`] = `
+exports[`<AsyncButton /> should render children 1`] = `
 <button>
   Click
 </button>
 `;
 
-exports[`should render children 2`] = `
+exports[`<AsyncButton /> should render children 2`] = `
 <button>
   Loading
 </button>
 `;
 
-exports[`should render children 3`] = `
+exports[`<AsyncButton /> should render children 3`] = `
 <button>
   Success
 </button>
 `;
 
-exports[`should render error when callback throws 1`] = `
+exports[`<AsyncButton /> should render error when callback throws 1`] = `
 <button>
   Error
 </button>
