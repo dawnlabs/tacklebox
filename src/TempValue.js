@@ -1,22 +1,7 @@
 import { memo, useState, useMemo } from 'react'
+import isEqual from 'react-fast-compare'
 
 import { useAsyncCallback } from '.'
-
-const isEqual = (source, target) => {
-  if (source === target) {
-    return true
-  }
-
-  if (typeof source === 'object' && typeof target === 'object') {
-    if (Array.isArray(source)) {
-      return source.every((value, i) => isEqual(value, target[i]))
-    }
-
-    return Object.keys(source).every(key => isEqual(source[key], target[key]))
-  }
-
-  return false
-}
 
 export function useTempValue(initialValue, { onSubmit, onReset } = {}) {
   const [value, setState] = useState(initialValue)

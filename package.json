@@ -23,7 +23,8 @@
     "react": "^16.7.0-alpha.0",
     "react-click-outside": "^3.0.1",
     "react-copy-to-clipboard": "^5.0.1",
-    "react-dom": "^16.7.0-alpha.0"
+    "react-dom": "^16.7.0-alpha.0",
+    "react-fast-compare": "^2.0.2"
   },
   "devDependencies": {
     "@babel/core": "^7.1.2",

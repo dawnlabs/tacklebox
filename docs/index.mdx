@@ -17,8 +17,20 @@ import {TempValue} from '../src'
     {({ hasChanged, value, onInputChange, submit, reset }) => (
       <form onSubmit={e => e.preventDefault()}>
         <input value={value || ''} onChange={onInputChange} />
-        <button disabled={!hasChanged} onClick={submit}>Submit</button>
-        <button disabled={!hasChanged} onClick={reset}>Cancel</button>
+        <button
+          style={{ cursor: hasChanged ? 'pointer' : 'not-allowed'}}
+          disabled={!hasChanged}
+          onClick={submit}
+        >
+            Submit
+        </button>
+        <button
+          style={{ cursor: hasChanged ? 'pointer' : 'not-allowed'}}
+          disabled={!hasChanged}
+          onClick={reset}
+        >
+          Cancel
+        </button>
       </form>
     )}
   </TempValue>
