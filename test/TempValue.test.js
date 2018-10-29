@@ -23,7 +23,7 @@ describe('<TempValue />', () => {
       )
     }
 
-    const {getByText} = render(<MyComponent />)
+    const { getByText } = render(<MyComponent />)
 
     fireEvent.click(getByText('Submit'))
     fireEvent.click(getByText('Reset'))
