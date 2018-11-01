@@ -4,8 +4,8 @@ const umd = {
   input: 'src/index.js',
   output: [
     {
-      name: 'TackleBox',
-      file: 'dist/tackle-box.umd.js',
+      name: 'ActionSack',
+      file: 'dist/actionsack.umd.js',
       format: 'umd',
       sourcemap: true,
       exports: 'named'

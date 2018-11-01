@@ -1,8 +1,8 @@
 {
-  "name": "tackle-box",
-  "version": "0.0.0",
+  "name": "actionsack",
+  "version": "0.0.4",
   "description": "React UX components for handling common interactions",
-  "main": "dist/tackle-box.umd.js",
+  "main": "dist/actionsack.umd.js",
   "scripts": {
     "test": "jest",
     "coverage": "yarn test --coverage",
@@ -56,9 +56,9 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/dawnlabs/tackle-box.git"
+    "url": "git+https://github.com/dawnlabs/actionsack.git"
   },
   "bugs": {
-    "url": "https://github.com/dawnlabs/tackle-box/issues"
+    "url": "https://github.com/dawnlabs/actionsack/issues"
   }
 }
