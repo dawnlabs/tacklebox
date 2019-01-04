@@ -2,16 +2,22 @@
   "name": "actionsack",
   "version": "0.1.0",
   "description": "React UX components for handling common interactions",
-  "main": "dist/actionsack.umd.js",
+  "main": "dist/index.js",
+  "umd:main": "dist/index.umd.js",
+  "module": "dist/index.mjs",
   "scripts": {
     "test": "jest",
     "coverage": "yarn test --coverage",
-    "build": "rollup --config",
+    "build": "microbundle",
+    "dev": "microbundle watch",
     "docz:dev": "docz dev",
     "docz:build": "docz build",
     "lint": "eslint src",
     "prettier": "prettier --single-quote --no-semi --print-width 100 --write src/*.js test/*.js"
   },
+  "files": [
+    "dist/"
+  ],
   "keywords": [
     "react",
     "ux",
@@ -29,8 +35,6 @@
   },
   "devDependencies": {
     "@babel/core": "^7.1.2",
-    "@babel/plugin-external-helpers": "^7.0.0",
-    "@babel/plugin-transform-runtime": "^7.1.0",
     "@babel/preset-env": "^7.1.0",
     "@babel/preset-react": "^7.0.0",
     "babel-core": "^7.0.0-bridge.0",
@@ -42,13 +46,8 @@
     "eslint-plugin-react": "^7.11.1",
     "eslint-plugin-react-hooks": "^0.0.0",
     "jest": "^23.6.0",
-    "react-testing-library": "^5.2.3",
-    "rollup": "^0.66.6",
-    "rollup-plugin-babel": "^4.0.3",
-    "rollup-plugin-commonjs": "^9.2.0",
-    "rollup-plugin-node-resolve": "^3.4.0",
-    "rollup-plugin-replace": "^2.1.0",
-    "rollup-plugin-terser": "^3.0.0"
+    "microbundle": "^0.9.0",
+    "react-testing-library": "^5.2.3"
   },
   "jest": {
     "clearMocks": true,

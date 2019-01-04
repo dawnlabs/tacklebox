@@ -1,7 +1,7 @@
 import React, { memo } from 'react'
 import CopyToClipboard from 'react-copy-to-clipboard'
 
-import { useAsyncCallback } from '.'
+import { useAsyncCallback } from './AsyncButton'
 
 const wait = t => () => new Promise(res => setTimeout(res, t))
 

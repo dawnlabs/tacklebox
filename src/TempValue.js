@@ -1,7 +1,7 @@
 import { memo, useState, useMemo } from 'react'
 import isEqual from 'react-fast-compare'
 
-import { useAsyncCallback } from '.'
+import { useAsyncCallback } from './AsyncButton'
 
 export function useTempValue(initialValue, { onSubmit, onReset } = {}) {
   const [value, setState] = useState(initialValue)
