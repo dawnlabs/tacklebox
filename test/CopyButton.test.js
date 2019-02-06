@@ -32,7 +32,9 @@ describe('<CopyButton />', () => {
 
       const { getByText } = render(
         <CopyButton {...props}>
-          {({ copied }) => <button>{copied ? 'Copied!' : 'Click'}</button>}
+          {({ onClick, copied }) => (
+            <button onClick={onClick}>{copied ? 'Copied!' : 'Click'}</button>
+          )}
         </CopyButton>
       )
 

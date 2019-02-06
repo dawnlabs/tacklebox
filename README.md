@@ -74,6 +74,29 @@ function MyForm(props) {
 }
 ```
 
+### `useCopyTextHandler`
+
+> `hook` 🎣
+
+Creates an `onClick` handler that copies the text you pass in, and updates the `copied` field accordingly.
+**Note**: you must pass `onClick` to a `<button>` in order to copy the text.
+
+##### Example
+
+```javascript
+import { useCopyTextHandler } from 'actionsack'
+
+const interval = 2 * 1000 // 2 seconds
+
+function MyCopyButton() {
+  const { onClick, copied } = useCopyTextHandler('https://github.com/dawnlabs/actionsack', {
+    interval
+  })
+
+  return <button onClick={onClick}>{copied ? 'COPIED!' : 'Copy URL'}</button>
+}
+```
+
 ### Modal
 
 > `wrapper HOC` component
@@ -90,26 +113,6 @@ import {Modal} from 'actionsack'
     <input placeholder="Enter name here . . ." />
   </form>
 </>
-```
-
-### CopyButton
-
-> `render-prop` container
-
-Button that copies to clipboard and handles interval to display copy text.
-**Note**: you must render a `<button>` in order to copy the text.
-
-##### Example
-
-```javascript
-import {CopyButton} from 'actionsack'
-const interval = 2 * 1000 // 2 seconds
-
-<CopyButton text="https://github.com/dawnlabs/actionsack" interval={interval}>
-  {({ copied }) => (
-    <button>{copied ? 'COPIED!' : 'Copy URL'}</button>
-  )}
-</CopyButton>
 ```
 
 ### License

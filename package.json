@@ -27,8 +27,8 @@
   "author": "dawnlabs",
   "license": "MIT",
   "dependencies": {
+    "copy-to-clipboard": "^3.0.8",
     "react-click-outside": "^3.0.1",
-    "react-copy-to-clipboard": "^5.0.1",
     "react-fast-compare": "^2.0.2"
   },
   "peerDependencies": {
@@ -40,8 +40,9 @@
     "@babel/preset-react": "^7.0.0",
     "babel-core": "^7.0.0-bridge.0",
     "babel-eslint": "^10.0.1",
-    "babel-jest": "^23.6.0",
-    "docz": "^0.12.5",
+    "babel-jest": "^24.1.0",
+    "docz": "^0.13.7",
+    "docz-theme-default": "^0.13.7",
     "eslint": "^5.8.0",
     "eslint-plugin-import": "^2.14.0",
     "eslint-plugin-react": "^7.11.1",

@@ -42,7 +42,9 @@ import {CopyButton} from '../src'
 
 <Playground>
   <CopyButton text="Copied!">
-    {({ copied }) => <button>{copied ? 'Copied!': 'Copy'}</button>}
+    {({ copied, onClick }) => (
+      <button onClick={onClick}>{copied ? 'Copied!': 'Copy'}</button>
+    )}
   </CopyButton>
 </Playground>
 
