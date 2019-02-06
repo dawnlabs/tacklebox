@@ -9,7 +9,7 @@
 > 🎣 `hook`
 
 Takes any function and gives you a loading and error state. Good for handling
-general asynchronous interactions. Used by [`AsyncButton`](#asyncbutton), [`TempValue`](#tempvalue), and [`CopyButton`](#copybutton).
+general asynchronous interactions.
 
 ```js
 import { useAsyncCallback } from 'actionsack'
@@ -31,7 +31,7 @@ function MyAsyncButton(props) {
 
 > 🎣 `hook`
 
-Pass it a keyboard key and a handler to automatically listen for keyboard clicks. Used by [`Modal`](#modal).
+Pass it a keyboard key and a handler to automatically listen for keyboard clicks.
 
 ##### Example
 
@@ -49,7 +49,7 @@ function Modal(props) {
 
 > `hook` 🎣
 
-Hook that gives you a temporary state value that you can either commit with `submit` or revert with `reset`. Used by [`TempValue`](#tempvalue).
+Hook that gives you a temporary state value that you can either commit with `submit` or revert with `reset`.
 
 ##### Example
 
