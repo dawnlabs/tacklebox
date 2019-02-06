@@ -1,4 +1,4 @@
-import React, { memo, useEffect } from 'react'
+import React, { memo, useEffect, useCallback } from 'react'
 import enhanceWithClickOutside from 'react-click-outside'
 
 export const useEventListener = function(eventName, handler) {
@@ -10,13 +10,16 @@ export const useEventListener = function(eventName, handler) {
 }
 
 export const useKeyboardListener = function(key, handler) {
-  function handleKeyDown(event) {
-    if (event.key === key) {
-      return handler(event)
-    }
-  }
+  const handleKeyDown = useCallback(
+    function handleKeyDown(event) {
+      if (event.key === key) {
+        return handler(event)
+      }
+    },
+    [handler]
+  )
 
-  return useEventListener('keydown', handleKeyDown)
+  useEventListener('keydown', handleKeyDown)
 }
 
 const ESCAPE_KEY = 'Escape'
