@@ -41,8 +41,5 @@ export function useLocalStorage(key) {
     }
   }, [key, state])
 
-  return {
-    state,
-    setState
-  }
+  return [state, setState]
 }
