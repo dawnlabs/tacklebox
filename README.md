@@ -1,4 +1,4 @@
-# Action Sack 🎒
+# Tackle Box 🎣
 
 > Collection of React user-experience hooks + containers for common interactions
 
