@@ -21,8 +21,9 @@
   "keywords": [
     "react",
     "ux",
-    "components",
-    "render-props"
+    "hooks",
+    "interactions",
+    "collection"
   ],
   "author": "dawnlabs",
   "license": "MIT",
