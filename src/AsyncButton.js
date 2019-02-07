@@ -1,9 +1,9 @@
-import { memo, useState } from 'react'
+import React from 'react'
 
 export function useAsyncCallback(cb) {
-  const [loading, setLoading] = useState(null)
-  const [error, setError] = useState(null)
-  const [data, setData] = useState(null)
+  const [loading, setLoading] = React.useState(null)
+  const [error, setError] = React.useState(null)
+  const [data, setData] = React.useState(null)
 
   return [
     async function(...props) {
@@ -27,7 +27,7 @@ export function useAsyncCallback(cb) {
   ]
 }
 
-export const AsyncButton = memo(function AsyncButton(props) {
+export const AsyncButton = React.memo(function AsyncButton(props) {
   const [onClick, { data, loading, error }] = useAsyncCallback(props.onClick)
   return props.children({
     data,

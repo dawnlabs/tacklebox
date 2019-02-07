@@ -1,8 +1,8 @@
-import React, { memo, useEffect, useCallback } from 'react'
+import React from 'react'
 import enhanceWithClickOutside from 'react-click-outside'
 
 export const useEventListener = function(eventName, handler) {
-  return useEffect(() => {
+  return React.useEffect(() => {
     document.addEventListener(eventName, handler, false)
 
     return () => document.removeEventListener(eventName, handler, false)
@@ -10,7 +10,7 @@ export const useEventListener = function(eventName, handler) {
 }
 
 export const useKeyboardListener = function(key, handler) {
-  const handleKeyDown = useCallback(
+  const handleKeyDown = React.useCallback(
     function handleKeyDown(event) {
       if (event.key === key) {
         return handler(event)
@@ -35,7 +35,7 @@ const ClickAway = enhanceWithClickOutside(
   }
 )
 
-export const Modal = memo(props => {
+export const Modal = React.memo(props => {
   useKeyboardListener(ESCAPE_KEY, props.onClickAway)
   return <ClickAway onClickAway={props.onClickAway}>{props.open ? props.children : null}</ClickAway>
 })

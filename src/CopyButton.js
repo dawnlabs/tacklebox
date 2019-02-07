@@ -1,4 +1,4 @@
-import { memo } from 'react'
+import React from 'react'
 import copy from 'copy-to-clipboard'
 
 import { useAsyncCallback } from './AsyncButton'
@@ -19,6 +19,6 @@ export function useCopyTextHandler(textToCopy, { interval } = {}) {
   }
 }
 
-export const CopyButton = memo(function CopyButton(props) {
+export const CopyButton = React.memo(function CopyButton(props) {
   return props.children(useCopyTextHandler(props.text, { interval: props.interval }))
 })

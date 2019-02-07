@@ -1,15 +1,15 @@
-import { memo, useState, useMemo, useCallback } from 'react'
+import React from 'react'
 import isEqual from 'react-fast-compare'
 
 import { useAsyncCallback } from './AsyncButton'
 
 export function useTempValue(initialValue, { onSubmit, onReset } = {}) {
-  const [value, setState] = useState(initialValue)
-  const [baseValue, setBaseValue] = useState(initialValue)
+  const [value, setState] = React.useState(initialValue)
+  const [baseValue, setBaseValue] = React.useState(initialValue)
 
-  const hasChanged = !useMemo(() => isEqual(baseValue, value), [baseValue, value])
+  const hasChanged = !React.useMemo(() => isEqual(baseValue, value), [baseValue, value])
 
-  const onInputChange = useCallback(e => setState(e.target.value), [setState])
+  const onInputChange = React.useCallback(e => setState(e.target.value), [setState])
 
   const [handleSubmit, { data, loading, error }] = useAsyncCallback(async () => {
     if (onSubmit) {
@@ -38,7 +38,7 @@ export function useTempValue(initialValue, { onSubmit, onReset } = {}) {
   }
 }
 
-export const TempValue = memo(function TempValue(props) {
+export const TempValue = React.memo(function TempValue(props) {
   const all = useTempValue(props.initialValue, props)
 
   return props.children(all)

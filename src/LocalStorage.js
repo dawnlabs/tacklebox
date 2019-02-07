@@ -1,11 +1,11 @@
-import { useState, useEffect } from 'react'
+import React from 'react'
 
 const toString = value => JSON.stringify(value)
 
 export function useLocalStorage(key) {
-  const [state, setState] = useState(null)
+  const [state, setState] = React.useState(null)
 
-  useEffect(() => {
+  React.useEffect(() => {
     if (localStorage.hasOwnProperty(key)) {
       // get the key's value from localStorage
       let value = localStorage.getItem(key)
@@ -19,7 +19,7 @@ export function useLocalStorage(key) {
     }
   }, [])
 
-  useEffect(() => {
+  React.useEffect(() => {
     function handleStorageChange(e) {
       const { isTrusted, newValue: value } = e
 
@@ -33,7 +33,7 @@ export function useLocalStorage(key) {
     return () => window.removeEventListener('storage', handleStorageChange)
   }, [])
 
-  useEffect(() => {
+  React.useEffect(() => {
     if (state == undefined) {
       localStorage.removeItem(key)
     } else {
