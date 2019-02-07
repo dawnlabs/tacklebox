@@ -1,6 +1,6 @@
 {
-  "name": "actionsack",
-  "version": "1.0.1",
+  "name": "@dawnlabs/tacklebox",
+  "version": "0.0.1",
   "description": "React UX components for handling common interactions",
   "main": "dist/index.js",
   "umd:main": "dist/index.umd.js",
@@ -61,9 +61,9 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/dawnlabs/actionsack.git"
+    "url": "git+https://github.com/dawnlabs/tacklebox.git"
   },
   "bugs": {
-    "url": "https://github.com/dawnlabs/actionsack/issues"
+    "url": "https://github.com/dawnlabs/tacklebox/issues"
   }
 }

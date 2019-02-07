@@ -12,7 +12,7 @@ Takes any function and gives you a loading and error state. Good for handling
 general asynchronous interactions.
 
 ```js
-import { useAsyncCallback } from 'actionsack'
+import { useAsyncCallback } from '@dawnlabs/tacklebox'
 
 function MyAsyncButton(props) {
   const [onClick, { loading, error, data }] = useAsyncCallback(props.onClick)
@@ -36,7 +36,7 @@ Pass it a keyboard key and a handler to automatically listen for keyboard clicks
 ##### Example
 
 ```js
-import { useKeyboardListener } from 'actionsack'
+import { useKeyboardListener } from '@dawnlabs/tacklebox'
 
 function Modal(props) {
   useKeyboardListener('Escape', props.onClose)
@@ -54,7 +54,7 @@ Hook that gives you a temporary state value that you can either commit with `sub
 ##### Example
 
 ```javascript
-import { useTempValue } from 'actionsack'
+import { useTempValue } from '@dawnlabs/tacklebox'
 
 function MyForm(props) {
   const initialName = props.name
@@ -84,12 +84,12 @@ Creates an `onClick` handler that copies the text you pass in, and updates the `
 ##### Example
 
 ```javascript
-import { useCopyTextHandler } from 'actionsack'
+import { useCopyTextHandler } from '@dawnlabs/tacklebox'
 
 const interval = 2 * 1000 // 2 seconds
 
 function MyCopyButton() {
-  const { onClick, copied } = useCopyTextHandler('https://github.com/dawnlabs/actionsack', {
+  const { onClick, copied } = useCopyTextHandler('https://github.com/dawnlabs/tacklebox', {
     interval
   })
 
@@ -106,7 +106,7 @@ Class controlled Modal component with click-away and ESC-key to close
 ##### Example
 
 ```javascript
-import {Modal} from 'actionsack'
+import {Modal} from '@dawnlabs/tacklebox'
 
 <Modal open={this.state.open} onClickAway={() => this.setState({ open: false})}>
   <form>
