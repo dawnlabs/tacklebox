@@ -4,6 +4,13 @@
 
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](http://makeapullrequest.com)
 
+## Getting Started
+```bash
+yarn add @dawnlabs/tacklebox
+```
+
+## Usage
+
 ### `useAsyncCallback`
 
 > 🎣 `hook`
