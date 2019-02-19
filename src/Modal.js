@@ -2,7 +2,7 @@ import React from 'react'
 import enhanceWithClickOutside from 'react-click-outside'
 
 export const useEventListener = function(eventName, handler) {
-  return React.useEffect(() => {
+  React.useEffect(() => {
     document.addEventListener(eventName, handler, false)
 
     return () => document.removeEventListener(eventName, handler, false)
@@ -16,7 +16,7 @@ export const useKeyboardListener = function(key, handler) {
         return handler(event)
       }
     },
-    [handler]
+    [key, handler]
   )
 
   useEventListener('keydown', handleKeyDown)

@@ -17,7 +17,7 @@ export function useLocalStorage(key) {
         setState(value)
       }
     }
-  }, [])
+  }, [key, setState])
 
   React.useEffect(() => {
     function handleStorageChange(e) {
@@ -31,7 +31,7 @@ export function useLocalStorage(key) {
     window.addEventListener('storage', handleStorageChange)
 
     return () => window.removeEventListener('storage', handleStorageChange)
-  }, [])
+  }, [setState])
 
   React.useEffect(() => {
     if (state == undefined) {

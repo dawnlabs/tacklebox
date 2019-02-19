@@ -30,12 +30,13 @@
   "dependencies": {
     "copy-to-clipboard": "^3.0.8",
     "react-click-outside": "^3.0.1",
-    "react-fast-compare": "^2.0.2"
+    "react-fast-compare": "^2.0.4"
   },
   "peerDependencies": {
     "react": "^16.8.0"
   },
   "devDependencies": {
+    "@babel/core": "^7.3.3",
     "@babel/plugin-transform-runtime": "^7.2.0",
     "@babel/preset-env": "^7.3.1",
     "@babel/preset-react": "^7.0.0",
@@ -43,15 +44,15 @@
     "babel-jest": "^24.1.0",
     "docz": "^0.13.7",
     "docz-theme-default": "^0.13.7",
-    "eslint": "^5.8.0",
-    "eslint-plugin-import": "^2.14.0",
-    "eslint-plugin-react": "^7.11.1",
-    "eslint-plugin-react-hooks": "^1.0.1",
+    "eslint": "^5.14.1",
+    "eslint-plugin-import": "^2.16.0",
+    "eslint-plugin-react": "^7.12.4",
+    "eslint-plugin-react-hooks": "^1.1.0-alpha.1",
     "jest": "^24.1.0",
     "microbundle": "^0.9.0",
-    "react": "16.8.1",
-    "react-dom": "16.8.1",
-    "react-testing-library": "^5.5.3"
+    "react": "^16.8.2",
+    "react-dom": "^16.8.2",
+    "react-testing-library": "^5.9.0"
   },
   "jest": {
     "clearMocks": true,
