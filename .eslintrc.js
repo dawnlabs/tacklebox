@@ -21,7 +21,7 @@ module.exports = {
     'react/jsx-uses-vars': 'error',
     'import/no-unresolved': 'error',
     'react-hooks/rules-of-hooks': 'error',
-    'react-hooks/reactive-deps': 'error'
+    'react-hooks/exhaustive-deps': 'error'
   },
   settings: {
     react: {
