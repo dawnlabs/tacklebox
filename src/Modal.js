@@ -2,7 +2,7 @@ import React from 'react'
 import enhanceWithClickOutside from 'react-click-outside'
 
 export const useEventListener = function(eventName, handler) {
-  React.useEffect(() => {
+  return React.useEffect(() => {
     document.addEventListener(eventName, handler, false)
 
     return () => document.removeEventListener(eventName, handler, false)
