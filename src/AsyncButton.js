@@ -5,7 +5,7 @@ export function useAsyncCallback(cb) {
   const [error, setError] = React.useState(null)
   const [data, setData] = React.useState(null)
 
-  return [
+  const passedCallback = React.useCallback(
     async function(...props) {
       setLoading(true)
       setError(null)
@@ -19,6 +19,11 @@ export function useAsyncCallback(cb) {
         setLoading(false)
       }
     },
+    [cb]
+  )
+
+  return [
+    passedCallback,
     {
       data,
       loading,
