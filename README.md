@@ -5,6 +5,7 @@
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](http://makeapullrequest.com)
 
 ## Getting Started
+
 ```bash
 yarn add @dawnlabs/tacklebox
 ```
@@ -101,6 +102,23 @@ function MyCopyButton() {
   })
 
   return <button onClick={onClick}>{copied ? 'COPIED!' : 'Copy URL'}</button>
+}
+```
+
+### `useOnline`
+
+> `hook` 🎣
+
+Subscribes to whether the network is online or off
+
+##### Example
+
+```javascript
+import { useOnline } from '@dawnlabs/tacklebox'
+
+function MyComponent() {
+  const online = useOnline()
+  return <span>You are {online ? 'online' : 'offline'}</span>
 }
 ```
 
