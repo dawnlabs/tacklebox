@@ -1,6 +1,6 @@
 {
   "name": "@dawnlabs/tacklebox",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "React UX components for handling common interactions",
   "main": "dist/index.js",
   "umd:main": "dist/index.umd.js",
