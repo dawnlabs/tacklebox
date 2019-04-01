@@ -13,6 +13,8 @@ export function useLocalStorage(key) {
       // parse the localStorage string and setState
       try {
         value = JSON.parse(value)
+      } catch (e) {
+        // pass
       } finally {
         setState(value)
       }
