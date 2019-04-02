@@ -1,6 +1,13 @@
 import React from 'react'
 
-const toString = value => (typeof value === 'string' ? value : JSON.stringify(value))
+const stringify = value => (typeof value === 'string' ? value : JSON.stringify(value))
+const parse = o => {
+  try {
+    return JSON.parse(o)
+  } catch (error) {
+    return o
+  }
+}
 
 export function useLocalStorage(key) {
   const [state, setState] = React.useState(null)
@@ -12,7 +19,7 @@ export function useLocalStorage(key) {
 
       // parse the localStorage string and setState
       try {
-        value = JSON.parse(value)
+        value = parse(value)
       } catch (e) {
         // pass
       } finally {
@@ -39,7 +46,7 @@ export function useLocalStorage(key) {
     if (state == undefined) {
       localStorage.removeItem(key)
     } else {
-      localStorage.setItem(key, toString(state))
+      localStorage.setItem(key, stringify(state))
     }
   }, [key, state])
 
