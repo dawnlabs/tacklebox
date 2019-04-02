@@ -1,6 +1,6 @@
 import React from 'react'
 
-const toString = value => JSON.stringify(value)
+const toString = value => (typeof value === 'string' ? value : JSON.stringify(value))
 
 export function useLocalStorage(key) {
   const [state, setState] = React.useState(null)
