@@ -18,13 +18,7 @@ export function useLocalStorage(key) {
       let value = localStorage.getItem(key)
 
       // parse the localStorage string and setState
-      try {
-        value = parse(value)
-      } catch (e) {
-        // pass
-      } finally {
-        setState(value)
-      }
+      setState(parse(value))
     }
   }, [key])
 
