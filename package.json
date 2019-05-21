@@ -31,7 +31,9 @@
   "dependencies": {
     "copy-to-clipboard": "^3.0.8",
     "react-click-outside": "^3.0.1",
-    "react-fast-compare": "2.0.2"
+    "react-fast-compare": "2.0.2",
+    "react-focus-lock": "^1.19.1",
+    "react-remove-scroll": "^1.0.8"
   },
   "peerDependencies": {
     "react": "^16.8.0"

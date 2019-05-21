@@ -3,14 +3,16 @@ name: Tackle Box
 route: /
 order: 1
 ---
+
 import { Playground } from 'docz'
 
 # Tackle Box
+
 > Collection of React user-experience containers for common interactions
 
 ## TempValue
 
-import {TempValue} from '../src'
+import { TempValue } from '../src'
 
 <Playground>
   <TempValue initialValue="Mike">
@@ -18,14 +20,14 @@ import {TempValue} from '../src'
       <form onSubmit={e => e.preventDefault()}>
         <input value={value || ''} onChange={onInputChange} />
         <button
-          style={{ cursor: hasChanged ? 'pointer' : 'not-allowed'}}
+          style={{ cursor: hasChanged ? 'pointer' : 'not-allowed' }}
           disabled={!hasChanged}
           onClick={submit}
         >
-            Submit
+          Submit
         </button>
         <button
-          style={{ cursor: hasChanged ? 'pointer' : 'not-allowed'}}
+          style={{ cursor: hasChanged ? 'pointer' : 'not-allowed' }}
           disabled={!hasChanged}
           onClick={reset}
         >
@@ -38,32 +40,38 @@ import {TempValue} from '../src'
 
 ## CopyButton
 
-import {CopyButton} from '../src'
+import { CopyButton } from '../src'
 
 <Playground>
   <CopyButton text="Copied!">
-    {({ copied, onClick }) => (
-      <button onClick={onClick}>{copied ? 'Copied!': 'Copy'}</button>
-    )}
+    {({ copied, onClick }) => <button onClick={onClick}>{copied ? 'Copied!' : 'Copy'}</button>}
   </CopyButton>
 </Playground>
 
 ## AsyncButton
 
-import {AsyncButton} from '../src'
+import { AsyncButton } from '../src'
 
 <Playground>
-  <AsyncButton onClick={() => new Promise(res => setTimeout(function () { res() }, 1000))}>
-    {({ loading, onClick }) => <button onClick={onClick}>{loading ? 'Saving...': 'Save'}</button>}
+  <AsyncButton
+    onClick={() =>
+      new Promise(res =>
+        setTimeout(function() {
+          res()
+        }, 1000)
+      )
+    }
+  >
+    {({ loading, onClick }) => <button onClick={onClick}>{loading ? 'Saving...' : 'Save'}</button>}
   </AsyncButton>
 </Playground>
 
-
 ## Modal
-import {Modal} from '../src'
+
+import { Modal } from '../src'
 
 <Playground>
-  <Modal open={true} onClickAway={() => {}}>
+  <Modal removeScroll={false} open={true} onClickAway={() => {}}>
     <div>
       <h2>Hey all</h2>
     </div>
