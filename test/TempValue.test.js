@@ -31,7 +31,7 @@ describe('<TempValue />', () => {
 
   test('should children correctly', async () => {
     const onSubmit = jest.fn(() => Promise.resolve())
-    const { getByPlaceholderText, getByText, container } = render(
+    const { getByPlaceholderText, getByText, getAllByText, container } = render(
       <TempValue onSubmit={onSubmit} initialValue="">
         {({ hasChanged, loading, value, submit, reset, onInputChange }) => (
           <form
@@ -70,7 +70,7 @@ describe('<TempValue />', () => {
     expect(getByPlaceholderText('Value').value).toBe('Final Value')
 
     fireEvent.click(getByText('Submit'))
-    getByText('Loading')
+    getAllByText('Loading')
     await wait()
 
     expect(onSubmit).toHaveBeenCalledWith('Final Value')

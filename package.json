@@ -29,31 +29,31 @@
   "author": "dawnlabs",
   "license": "MIT",
   "dependencies": {
-    "copy-to-clipboard": "^3.0.8",
+    "copy-to-clipboard": "^3.2.0",
     "react-click-outside": "^3.0.1",
-    "react-fast-compare": "2.0.2"
+    "react-fast-compare": "2.0.4"
   },
   "peerDependencies": {
     "react": "^16.8.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.3.3",
-    "@babel/plugin-transform-runtime": "^7.2.0",
-    "@babel/preset-env": "^7.3.1",
+    "@babel/core": "^7.4.5",
+    "@babel/plugin-transform-runtime": "^7.4.4",
+    "@babel/preset-env": "^7.4.5",
     "@babel/preset-react": "^7.0.0",
     "babel-eslint": "^10.0.1",
-    "babel-jest": "^24.1.0",
+    "babel-jest": "^24.8.0",
     "docz": "^0.13.7",
     "docz-theme-default": "^0.13.7",
-    "eslint": "^5.14.1",
-    "eslint-plugin-import": "^2.16.0",
-    "eslint-plugin-react": "^7.12.4",
-    "eslint-plugin-react-hooks": "^1.5.0",
-    "jest": "^24.1.0",
+    "eslint": "^5.16.0",
+    "eslint-plugin-import": "^2.17.2",
+    "eslint-plugin-react": "^7.13.0",
+    "eslint-plugin-react-hooks": "^1.6.0",
+    "jest": "^24.8.0",
     "microbundle": "^0.9.0",
-    "react": "^16.8.2",
-    "react-dom": "^16.8.2",
-    "react-testing-library": "^6.0.0"
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "react-testing-library": "^7.0.1"
   },
   "jest": {
     "clearMocks": true,
