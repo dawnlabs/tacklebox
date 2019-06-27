@@ -41,3 +41,5 @@ export const AsyncButton = React.memo(function AsyncButton(props) {
     onClick
   })
 })
+
+AsyncButton.displayName = 'AsyncButton'
