@@ -22,3 +22,5 @@ export function useCopyTextHandler(textToCopy, { interval } = {}) {
 export const CopyButton = React.memo(function CopyButton(props) {
   return props.children(useCopyTextHandler(props.text, { interval: props.interval }))
 })
+
+CopyButton.displayName = 'CopyButton'

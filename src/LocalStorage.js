@@ -13,7 +13,7 @@ export function useLocalStorage(key) {
   const [state, setState] = React.useState(null)
 
   React.useEffect(() => {
-    if (localStorage.hasOwnProperty(key)) {
+    if (Object.prototype.hasOwnProperty.call(localStorage, key)) {
       // get the key's value from localStorage
       let value = localStorage.getItem(key)
 

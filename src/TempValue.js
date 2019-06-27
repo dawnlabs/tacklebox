@@ -45,6 +45,7 @@ export const TempValue = React.memo(function TempValue(props) {
 })
 
 function noop() {}
+TempValue.displayName = 'TempValue'
 TempValue.defaultProps = {
   onReset: noop,
   onSubmit: noop
